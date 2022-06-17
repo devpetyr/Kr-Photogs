@@ -540,6 +540,7 @@ class UIcontroller extends Controller
         ];
 
         \Mail::to($user->email)->send(new contactFormEmail($details));
+        \Mail::to('devpetyr911@gmail.com')->send(new contactFormEmail($details));
         return back()->with('added','Submitted Successfully');
     }
 }
