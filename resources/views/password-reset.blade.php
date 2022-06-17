@@ -22,7 +22,7 @@
             </form>
           </div>
           <div class="accounttext">
-            <a href="{{ route('user_login') }}">Return to Login</a>
+            <a href="{{ route('user_login') }}">Return to Sign In</a>
           </div>
         </div>
       </section>

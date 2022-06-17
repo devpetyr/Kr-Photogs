@@ -40,11 +40,11 @@
                 <span style="color: crimson">Password not match</span>
               @endif
             </div>
-            <button type="submit" class="btn btn-primary">Log In</button>
+            <button type="submit" class="btn btn-primary">Sign In</button>
           </form>
         </div>
         <div class="accounttext">
-          <a href="{{ route('user_register') }}">Register | </a>
+          <a href="{{ route('user_register') }}">Sign Up | </a>
           <a href="{{ route('user_pass_reset') }}">&nbsp; Lost your password?</a>
         </div>
       </div>

@@ -23,32 +23,23 @@
                      <div class="navigation" id="navbar">
                          <ul class="navbar-set">
                              <li>
-                                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                             </li>
-                             <li>
-                                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                             </li>
-                             <li>
-                                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                             </li>
-                             <li>
                                  <a href="{{route('index')}}">Home</a>
                              </li>
                              @if (Auth::check() && Auth::user()->user_role == 0)
-                                 <li class=""><a href="{{ route('ui_redeem_code') }}">Redeem code</a>
+                                 <li class=""><a href="{{ route('ui_redeem_code') }}">Use Redeem code</a>
                                  <li class="my_dorp">
                                     <div class="dropdown">
-                                        <button class="dropbtn">{{ Auth::user()->username }}</button>
+                                        <button class="dropbtn">{{ Auth::user()->username }} <i class="fa-solid fa-caret-down"></i></button>
                                         <div class="dropdown-content">
                                             <a href="{{ route('user_myredeem') }}">My Redeem Code</a>
                                             <a href="{{ route('user_profile') }}">Profile</a>
 {{--                                            <a href="{{ route('reset_password') }}">Reset Password</a>--}}
-                                            <a href="{{ route('user_logout') }}">LogOut</a>
+                                            <a href="{{ route('user_logout') }}">Log Out</a>
                                         </div>
                                     </div>
                                 </li>
                              @else
-                                 <li class=""><a href="{{ route('user_login') }}">Login/Register</a></li>
+                                 <li class=""><a href="{{ route('user_login') }}">Sign In / Sign Up</a></li>
                              @endif
 
 
