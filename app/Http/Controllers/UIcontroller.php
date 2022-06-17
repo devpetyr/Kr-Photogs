@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\BannerModel;
+use App\Models\FAQModel;
 use Illuminate\Support\Facades\Artisan;
 use App\Models\Coupon_detailModel;
 use App\Models\CouponModel;
@@ -30,7 +32,8 @@ class UIcontroller extends Controller
     public function index()
     {
         $competition = CompetitionModel::where('status', 1)->get();
-        return view('index', compact('competition'));
+        $banner = BannerModel::orderby('id','ASC')->first();
+        return view('index', compact('competition','banner'));
     }
 
     public function password_reset()
@@ -543,4 +546,11 @@ class UIcontroller extends Controller
         \Mail::to('devpetyr911@gmail.com')->send(new contactFormEmail($details));
         return back()->with('added','Submitted Successfully');
     }
+    public function faqs()
+    {
+        $faqs = FAQModel::where('status',1)->get();
+//        dd($faqs);
+        return view('faqs',compact('faqs'));
+    }
 }
+

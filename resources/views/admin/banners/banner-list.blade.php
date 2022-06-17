@@ -11,9 +11,9 @@
         <div class="mb-3 mb-lg-0">
             <h1 class="h4">Banners-List</h1>
         </div>
-        <div>
-            <a href="{{route('admin_banners_add')}}" class="btn btn-outline-gray"><i class="far fa-plus-square mr-1"></i> Add New Banner</a>
-        </div>
+{{--        <div>--}}
+{{--            <a href="{{route('admin_banners_add')}}" class="btn btn-outline-gray"><i class="far fa-plus-square mr-1"></i> Add New Banner</a>--}}
+{{--        </div>--}}
     </div>
 </div>
 
@@ -29,9 +29,8 @@
                 <thead class="thead-light">
                     <tr>
                         <th class="border-0">#</th>
-                        <th class="border-0">Name</th>
                         <th class="border-0">Image</th>
-                        <th class="border-0">Status</th>
+{{--                        <th class="border-0">Status</th>--}}
                         <th class="border-0">Action</th>
                     </tr>
                 </thead>
@@ -41,13 +40,12 @@
                         @foreach($banner as $key=>$value)
                             <tr>
                                 <td class="border-0"><a href="#" class="text-primary font-weight-bold">{{$key+1}}</a> </td>
-                                <td class="border-0 font-weight-bold">{{$value->title}}</td>
                                 <td class="border-0">
-                                    <img class="img-list" src="{{asset('uploads/banners/'.$value->images)}}" alt="{{$value->title}}">
+                                    <img class="img-list" src="{{asset('uploads/banners/'.$value->title)}}" alt="{{$value->title}}">
                                 </td>
-                                <td class="border-0 font-weight-bold">
-                                    <span class="{{$value->status == 1 ? 'text-success' : 'text-danger'}}">{{$value->status == 1 ? 'Active' : 'Inactive'}}</span>
-                                </td>
+{{--                                <td class="border-0 font-weight-bold">--}}
+{{--                                    <span class="{{$value->status == 1 ? 'text-success' : 'text-danger'}}">{{$value->status == 1 ? 'Active' : 'Inactive'}}</span>--}}
+{{--                                </td>--}}
                                 <td class="border-0">
                                     <a href="{{route('admin_banners_edit').'/'.$value->id}}" class="text-secondary mr-3"><i class="fas fa-edit"></i>Edit</a>
                                     <span class="text-primary"> |  </span>

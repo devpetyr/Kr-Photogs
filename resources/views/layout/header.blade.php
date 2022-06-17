@@ -25,6 +25,9 @@
                              <li>
                                  <a href="{{route('index')}}">Home</a>
                              </li>
+                             <li>
+                                 <a href="{{route('faqs')}}">Faq's</a>
+                             </li>
                              @if (Auth::check() && Auth::user()->user_role == 0)
                                  <li class=""><a href="{{ route('ui_redeem_code') }}">Use Redeem code</a>
                                  <li class="my_dorp">
@@ -40,9 +43,6 @@
                              @else
                                  <li class=""><a href="{{ route('user_login') }}">Sign In / Sign Up</a></li>
                              @endif
-
-
-
                          </ul>
                      </div>
                  </div>

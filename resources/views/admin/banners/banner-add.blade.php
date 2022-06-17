@@ -27,18 +27,10 @@
                                     </div>
                                 @endif
                             <form action="{{route('admin_banners_add_edit')}}" method="POST" enctype="multipart/form-data">@csrf
-                                <div class="mb-4">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control" required name="title">
-                                </div>
-                                <div class="my-4">
-                                    <label for="textarea">Description</label>
-                                    <textarea class="form-control" placeholder="Enter your message..." id="textarea" rows="4" name="description"></textarea>
-                                </div>
                                 <div>
                                     <label for="textarea">Banner Image</label>
                                     <div class="form-file mb-3">
-                                        <input type="file" class="form-file-input" id="customFile" required name="images" onchange="loadFile($(this))">
+                                        <input type="file" class="form-file-input" id="customFile" required name="title" onchange="loadFile($(this))">
                                         <label class="form-file-label" for="customFile">
                                             <span class="form-file-text">Choose file...</span>
                                             <span class="form-file-button">Browse</span>

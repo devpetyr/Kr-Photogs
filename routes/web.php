@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\AdminOrderController;
 use App\Http\Controllers\UIcontroller;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminSquarePaymentController;
+use App\Http\Controllers\admin\AdminFaqsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::post('/competition', [UIcontroller::class, 'competition'])->name('competi
 Route::post('/comp_ajax', [UIcontroller::class, 'comp_ajax'])->name('comp_ajax');
 Route::get('/user-logout', [UIcontroller::class, 'user_logout'])->name('user_logout');
 Route::get('/auth-checker', [UIcontroller::class, 'authcheck'])->name('authcheck');
+Route::get('/faqs', [UIcontroller::class, 'faqs'])->name('faqs');
 
 Route::get('/emailtest', [UIcontroller::class, 'emailtest'])->name('emailtest');
 Route::post('/contact-form', [UIcontroller::class, 'contactForm'])->name('contactForm');
@@ -88,7 +90,7 @@ Route::post('change_password/{id}/{code}',[UIcontroller::class,'change_password'
 
         /**Banner Routes */
             Route::get('/admin/banner-list', [AdminDashboardController::class, 'banner'])->name('admin_banners');
-            Route::get('/admin/banner-add', [AdminDashboardController::class, 'banner_add'])->name('admin_banners_add');
+//            Route::get('/admin/banner-add', [AdminDashboardController::class, 'banner_add'])->name('admin_banners_add');
             Route::get('/admin/banner-edit/{id?}', [AdminDashboardController::class, 'banner_edit'])->name('admin_banners_edit');
             Route::get('/admin/banner-delete/{banner?}', [AdminDashboardController::class, 'banner_delete'])->name('admin_banners_delete');
             Route::post('/admin/banner-add-edit/{banner?}', [AdminDashboardController::class, 'banner_add_edit_data'])->name('admin_banners_add_edit');
@@ -112,13 +114,19 @@ Route::post('change_password/{id}/{code}',[UIcontroller::class,'change_password'
             Route::post('/admin/Competition-delete', [AdminCompetitionController::class, 'Competition_delete'])->name('admin_Competition_delete');
             Route::post('/admin/Competition-add-edit/{Competition?}', [AdminCompetitionController::class, 'Competition_add_edit_data'])->name('admin_Competition_add_edit');
 
+        /**FAQ's Routes*/
+            Route::get('/admin/faqs-list', [AdminFaqsController::class, 'faqs_list'])->name('admin_faqs');
+            Route::get('/admin/faqs-add', [AdminFaqsController::class, 'faqs_add'])->name('admin_faqs_add');
+            Route::get('/admin/faqs-edit/{id?}', [AdminFaqsController::class, 'faqs_edit'])->name('admin_faqs_edit');
+            Route::get('/admin/faqs-delete/{faq?}', [AdminFaqsController::class, 'faqs_delete'])->name('admin_faqs_delete');
+            Route::post('/admin/faqs-add-edit/{faq?}', [AdminFaqsController::class, 'faqs_add_edit_data'])->name('admin_faqs_add_edit');
 
         /**Coupon Routes */
-        Route::get('/admin/Coupon-list', [AdminCouponController::class, 'Coupon_list'])->name('admin_Coupon');
-        Route::get('/admin/Coupon-add', [AdminCouponController::class, 'Coupon_add'])->name('admin_Coupon_add');
-        Route::get('/admin/Coupon-edit/{id?}', [AdminCouponController::class, 'Coupon_edit'])->name('admin_Coupon_edit');
-        Route::get('/admin/Coupon-delete/{Coupon?}', [AdminCouponController::class, 'Coupon_delete'])->name('admin_Coupon_delete');
-        Route::post('/admin/Coupon-add-edit/{Coupon?}', [AdminCouponController::class, 'Coupon_add_edit_data'])->name('admin_Coupon_add_edit');
+            Route::get('/admin/Coupon-list', [AdminCouponController::class, 'Coupon_list'])->name('admin_Coupon');
+            Route::get('/admin/Coupon-add', [AdminCouponController::class, 'Coupon_add'])->name('admin_Coupon_add');
+            Route::get('/admin/Coupon-edit/{id?}', [AdminCouponController::class, 'Coupon_edit'])->name('admin_Coupon_edit');
+            Route::get('/admin/Coupon-delete/{Coupon?}', [AdminCouponController::class, 'Coupon_delete'])->name('admin_Coupon_delete');
+            Route::post('/admin/Coupon-add-edit/{Coupon?}', [AdminCouponController::class, 'Coupon_add_edit_data'])->name('admin_Coupon_add_edit');
         /**order Routes */
         Route::get('/admin/order', [AdminOrderController::class, 'order'])->name('order');
         Route::post('/admin/order-filter', [AdminOrderController::class, 'order_filter'])->name('order_filter');

@@ -41,15 +41,20 @@ function active($current_page){
         </div>
       </div>
       <ul class="nav flex-column">
-        
+
         <li class="nav-item  {{ active('dashboard') }} ">
           <a href="{{route('admin_dashboard')}}" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
             <span>Dashboard</span>
           </a>
         </li>
-
-        <li class="nav-item {{ active('blog-list') . active('blog-add') . active('blog-edit') }} ">
+        <li class="nav-item {{ active('banner-list') . active('banner-add') . active('banner-edit') }}">
+          <a href="{{route('admin_banners')}}" class="nav-link">
+              <span class="sidebar-icon"><i class="far fa-images"></i></span>
+              <span>Banners</span>
+          </a>
+        </li>
+        <li class="nav-item {{ active('Competition-list') . active('Competition-add') . active('Competition-edit') }} ">
           <a href="{{route('admin_Competition')}}" class="nav-link">
               <span class="sidebar-icon"></i><span class="fas fa-blog"></span></span>
               <span>Competition</span>
@@ -73,6 +78,13 @@ function active($current_page){
               <a href="{{route('admin_Coupon')}}" class="nav-link">
                   <span class="sidebar-icon"><span class="fa fa-gift"></span></span>
                   <span>Coupon</span>
+              </a>
+          </li>
+
+          <li class="nav-item {{ active('faqs-list') . active('faqs-add') . active('faqs-edit') }}">
+              <a href="{{route('admin_faqs')}}" class="nav-link">
+                  <span class="sidebar-icon"><span class="fa fa-question-circle"></span></span>
+                  <span>FAQ's</span>
               </a>
           </li>
 

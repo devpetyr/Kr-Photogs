@@ -1,5 +1,19 @@
 @extends('layout.main')
 @section('main')
+  <style>
+      .BannerBg {
+          background-image: url('{{asset('/uploads/banners/'.$banner->title)}}');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          padding: 15% 0;
+      }
+  </style>
+
+
     <!-- main -->
     <main>
         <!-- BEGIN Banner -->

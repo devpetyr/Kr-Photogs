@@ -10,6 +10,7 @@ use App\Models\OrdersModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class AdminDashboardController extends Controller
 {
@@ -76,15 +77,17 @@ class AdminDashboardController extends Controller
     {
         $create = 1;
         (isset($banner->id) and $banner->id>0)?$create=0:$create=1;
-        if($request->hasFile('images'))
+        if($request->hasFile('title'))
         {
-            $imageName = time().'.'.$request->images->getClientOriginalExtension();
-            $request->images->move(public_path('/uploads/banners'), $imageName);
-            $banner->images = $imageName;
+            /***for deleting file*/
+            $destinationPath = public_path('/uploads/banners');
+            File::delete($destinationPath.'/'.$banner->title);
+            /***for uploading new file*/
+            $imageName = time().'.'.$request->title->getClientOriginalExtension();
+            $request->title->move(public_path('/uploads/banners'), $imageName);
+            $banner->title = $imageName;
         }
-        $banner->title = $request->title;
-        $banner->description = $request->description;
-        $banner->status = $request->status;
+//        $banner->status = $request->status;
         $banner->save();
         if($create == 0)
         {
