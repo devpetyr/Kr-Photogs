@@ -109,58 +109,7 @@
         <!-- END After Banner -->
         <!-- Banner Qasim Start  -->
 
-        <!--<section class="ten">-->
-        <!--    <div class="container">-->
-        <!--        <div class="row">-->
-        <!--            <div class="col-md-10 col-sm-10 col-xs-12 centerCol">-->
-        <!--                <div class="row">-->
-        <!--                    <div class="col-md-12 col-sm-12 col-xs-12">-->
-        <!--                        <div class="ten_1 wow fadeInRight" data-wow-delay="0.2s">-->
-        <!--                            <h1>Contact us</h1>-->
-        <!--                            <p>-->
-        <!--                                Inventore veritatis et quasi architecto beatae vitae dicta-->
-        <!--                                sunt explicabo. Nemo enim ipsam voluptatem quia voluptas-->
-        <!--                                sit aspernatur aut-->
-        <!--                            </p>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="ten_4 wow fadeInLeft" data-wow-delay="0.2s">-->
-        <!--                    <div class="row">-->
-        <!--                        <div class="col-md-6 col-sm-6 col-xs-12">-->
-        <!--                            <div class="icon_1">-->
-        <!--                                <span><i class="fa-solid fa-phone"></i></span>-->
-        <!--                            </div>-->
-        <!--                            <div class="ten_3">-->
-        <!--                                <h6>Phone</h6>-->
-        <!--                                <ul>-->
-        <!--                                    <li>-->
-        <!--                                        <a href="tel:+123 456 7890"> +123 456 7890 </a>-->
-        <!--                                    </li>-->
-        <!--                                </ul>-->
-        <!--                            </div>-->
-        <!--                        </div>-->
 
-        <!--                        <div class="col-md-6 col-sm-6 col-xs-12">-->
-        <!--                            <div class="icon_1">-->
-        <!--                                <span><i class="fa-solid fa-envelope"></i></span>-->
-        <!--                            </div>-->
-        <!--                            <div class="ten_3">-->
-        <!--                                <h6>Email</h6>-->
-        <!--                                <ul>-->
-        <!--                                    <li>-->
-        <!--                                        <a href="mailto:kevin@krphotogs.com">-->
-        <!--                                            kevin@krphotogs.com</a>-->
-        <!--                                    </li>-->
-        <!--                                </ul>-->
-        <!--                            </div>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--</section>-->
 
         <section class="contact">
             <div class="container">
@@ -168,10 +117,6 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="contact_1 wow fadeInRight" data-wow-delay="0.2s">
                             <h1>Get in touch with us</h1>
-{{--                            <p>--}}
-{{--                                Quasi architecto beatae vitae dicta sunt explicabo. Nemo enim--}}
-{{--                                ipsam voluptatem quia voluptas sit aspernatur aut--}}
-{{--                            </p>--}}
                         </div>
                     </div>
                 </div>

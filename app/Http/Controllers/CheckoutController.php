@@ -20,8 +20,6 @@ class CheckoutController extends Controller
 {
     public function afterpayment(Request $req)
     {
-//        $total_price=session()->get('quty_Tprice') + 15;
-        // dd($total_price);
     	Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     	$data = Stripe\Charge::create([
     			"amount"=>10*100,
@@ -29,41 +27,15 @@ class CheckoutController extends Controller
     			"source"=>$req->stripeToken,
     			"description"=>$req->card_name,
     	]);
-        // echo "<pre>"; print_r($data); die();
-
-    	// Session::flash("success","Payment successfully!");
-
-    	// return back()->with("success","Payment successfully!");
         return redirect()->route('PTC_checkout');
 
     }
-    // public function afterPayment()
-    // {
-    //     echo 'Payment Received, Thanks you for using our services.';
-    // }
     public function checkout()
     {
         return view('checkout.credit-card');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**-------------------------Paypal Starts-----------------------**/
     private $gateway;
 
     public function __construct()
@@ -74,8 +46,6 @@ class CheckoutController extends Controller
         $this->gateway->setTestMode(false); //set it to 'false' when go live
     }
 
-
-
     /**
      * Initiate a payment on PayPal.
      *
@@ -83,24 +53,19 @@ class CheckoutController extends Controller
      */
     public function charge(Request $request)
     {
-
-
-
-                $response = $this->gateway->purchase(array(
-                    'amount' => session()->get('competition')['amount'],
-                    'currency' => env('PAYPAL_CURRENCY'),
-                    'returnUrl' => url('success'),
-                    'cancelUrl' => url('error'),
-                ))->send();
-//        dd($request,$this->gateway,$response);
-                if ($response->isRedirect()) {
-                    $response->redirect(); // this will automatically forward the customer
-                } else {
-                    // not successful
-                    return $response->getMessage();
-                }
-
-
+        $response = $this->gateway->purchase(array(
+            'amount' => session()->get('competition')['amount'],
+            'currency' => env('PAYPAL_CURRENCY'),
+            'description' => 'KrPhotogs Photography Live Streaming | Competition Checkout | '.session()->get('competition')['title'],
+            'returnUrl' => url('success'),
+            'cancelUrl' => url('error'),
+        ))->send();
+        if ($response->isRedirect()) {
+            $response->redirect(); // this will automatically forward the customer
+        } else {
+            // not successful
+            return $response->getMessage();
+        }
     }
 
     /**
@@ -122,9 +87,7 @@ class CheckoutController extends Controller
             if ($response->isSuccessful())
             {
                 $arr_body = $response->getData();
-//dd($arr_body);
                 // Insert transaction data into the database
-
                 $redeem_code = date('Ymd').time().rand(111111,999999);
                 $session=session()->get('competition');
                 $orders = new OrdersModel;
@@ -172,7 +135,6 @@ class CheckoutController extends Controller
                 return $response->getMessage();
             }
         } else {
-//            return 'Transaction is declined';
             return back()->with('failed', 'Transaction is declined');
         }
     }

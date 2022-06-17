@@ -31,9 +31,8 @@
                                     <div class="dropdown">
                                         <button class="dropbtn">{{ Auth::user()->username }} <i class="fa-solid fa-caret-down"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="{{ route('user_myredeem') }}">My Redeem Code</a>
+                                            <a href="{{ route('user_myredeem') }}">My Redeemed Code</a>
                                             <a href="{{ route('user_profile') }}">Profile</a>
-{{--                                            <a href="{{ route('reset_password') }}">Reset Password</a>--}}
                                             <a href="{{ route('user_logout') }}">Log Out</a>
                                         </div>
                                     </div>

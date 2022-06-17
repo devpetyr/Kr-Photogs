@@ -29,7 +29,7 @@ class contactFormEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Kr-Photography Contact Form')
+        return $this->subject('KrPhotogs Photography | Contact Form')
             ->view('emails.contact-form-email');
     }
 }

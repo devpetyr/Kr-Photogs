@@ -5,7 +5,7 @@
       <section class="RegisterSec">
         <div class="container">
           <div class="registerForm">
-            <span>Redeem Code</span>
+            <span>Use Redeem Code</span>
             <form action="{{ route('redeem_code_post') }}" method="post">
                 @csrf
               <div class="labelsinside">

@@ -208,44 +208,6 @@ class UIcontroller extends Controller
     }
     //controller
 
-    public function stripe_events(Request $request)
-    {
-
-
-        // dd($request->all());
-//        $stripe = $this->stripe_payment($request->email, $request->stripeToken, 10, 'Competition RedeemCode Payment');
-//        if ($stripe->status === "succeeded") {
-//            $redeem_code = date('Ymd').time().rand(111111,999999);
-//            $session=session()->get('competition');
-//            $orders = new OrdersModel;
-//            $orders->payer_id = $stripe->id;
-//            $orders->user_id = Auth::user()->id;
-//            $orders->price = $session['amount'] ;
-//            $orders->status = $stripe->status;
-//            $orders->redeem_code = $redeem_code;
-//            $orders->receipt_url = $stripe->receipt_url;
-//            $orders->competition_name =$session['id'] ;
-//            $orders->competition_date = $session['date'] ;
-//            $orders->url = $session['url'] ;
-//            $orders->payment_method = 'stripe';
-//            $comp_name=CompetitionModel::where('id',$session['id'])->first();
-//            session()->put('sendEmail', [
-//                'user_id'=>Auth::user()->id,
-//                'redeem_code'=>$redeem_code,
-//                'amount'=>$session['amount'],
-//                'comp_date'=>$session['date'],
-//                'comp_name'=>$comp_name->title,
-//                ]);
-//
-//            $orders->save();
-//
-//            session()->forget('competition');
-//            return redirect(route('mail_post'));
-//        } else {
-//            return back()->with('failed', 'Payment Failed');
-//        }
-    }
-
     public function iframe($id)
     {
 //        if(session('redeem'))
@@ -553,49 +515,6 @@ class UIcontroller extends Controller
         $pass->update();
         return redirect()->route('user_login')->with('added', 'Password Changed Successfully');
 
-    }
-    public function schedulerForIp()
-    {
-//        return redirect('https://www.google.com/');
-//        $emails=User::where('id',129)->first();
-//        $ip=serverIPs();
-
-        $emails = new CompetitionModel();
-        $emails->title="123456789";
-//        $emails->user_role=2;
-        $emails->save();
-
-
-       // $ipaddress = '';
-//        if (isset($_SERVER['HTTP_CLIENT_IP']))
-//            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-//        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-//            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-//        else if(isset($_SERVER['HTTP_X_FORWARDED']))
-//            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-//        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-//            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-//        else if(isset($_SERVER['HTTP_FORWARDED']))
-//            $ipaddress = $_SERVER['HTTP_FORWARDED'];
-//        else if(isset($_SERVER['REMOTE_ADDR']))
-//            $ipaddress = $_SERVER['REMOTE_ADDR'];
-//        else
-//            $ipaddress = 'UNKNOWN';
-//
-//        echo $ipaddress;
-//        echo auth()->user()->id;
-//
-//        $user=User::where('id',auth()->user()->id)
-//            ->where('server_IP',$ipaddress)
-//            ->first();
-//        if($user){
-////            echo 'yes';
-//        }
-//        else{
-////            echo 'no';
-//            Auth::logout();
-//            return redirect()->route('index');
-//        }
     }
     public function authcheck()
     {
