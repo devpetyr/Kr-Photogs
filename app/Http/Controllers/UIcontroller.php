@@ -23,10 +23,10 @@ class UIcontroller extends Controller
 {
     use AuthenticatesUsers;
 
-//    protected function authenticated(Request $request)
-//    {
-//        Auth::logoutOtherDevices($request->get('password'));
-//    }
+    protected function authenticated(Request $request)
+    {
+        Auth::logoutOtherDevices($request->get('password'));
+    }
     public function index()
     {
         $competition = CompetitionModel::where('status', 1)->get();
@@ -67,8 +67,8 @@ class UIcontroller extends Controller
                 $statusCheck = User::where('email', $request->Email)->where('status', 1)->where('user_role', 0)->first();
             if ($statusCheck) {
                 if (Hash::check($request->Pass,$emails->password)) {
-                    Auth::login($emails);
                     Auth::logoutOtherDevices($request->Pass);
+                    Auth::login($emails);
                     if (session()->has('competition')) {
                         return redirect()->route('payment_method');
                     }
@@ -122,7 +122,7 @@ class UIcontroller extends Controller
     {
 //         dd($request);
         $request->validate([
-            'Username' => 'required|min:3|max:15|alpha',
+            'Username' => 'required|min:3|max:15',
             'Email' => 'required',
             'Pass' => 'min:8|required_with:con_Pass|same:con_Pass',
             'con_Pass' => 'required|min:8',
@@ -519,7 +519,7 @@ class UIcontroller extends Controller
     public function authcheck()
     {
         if(!auth()->check()){
-            // Auth::logout();
+             Auth::logout();
             return response()->json(['status'=>1],200);
         }else{
             return response()->json(['status'=>0]);
