@@ -91,17 +91,17 @@ class UIcontroller extends Controller
                 session()->flash('emailerror');
                 return back()->with('input_email', $request->log_email);
             }
-            
-            
+
+
         } else {
             session()->flash('emailerror');
             return back()->with('input_email', $request->log_email);
         }
     }
-    
-    
-    
-    
+
+
+
+
     public function user_logout(Request $request)
     {
 //        dd(Auth::user()->id);
@@ -273,7 +273,7 @@ class UIcontroller extends Controller
         {
             $date = Carbon::now();
             // dd($date;
-            
+
             $code = CompetitionModel::where('id',$redeem->competition_name)
                 ->where('competition_date',$date->format('Y-m-d'))->first();
             if ($code)
@@ -613,15 +613,14 @@ class UIcontroller extends Controller
     }
     public function contactForm(Request $request)
     {
+        $user = User::where('user_role',1)->first();
         $details = [
             'name' => $request->name,
             'email' => $request->email,
-            'date' => $request->date,
             'message' => $request->message
         ];
 
-        \Mail::to('kevin@krphotogs.com')->send(new contactFormEmail($details));
-        \Mail::to('devpetyr911@gmail.com')->send(new contactFormEmail($details));
+        \Mail::to($user->email)->send(new contactFormEmail($details));
         return back()->with('added','Submitted Successfully');
     }
 }

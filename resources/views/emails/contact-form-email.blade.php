@@ -222,10 +222,6 @@
                                                             <td style=" border: 1px solid black; border-collapse: collapse; padding: 15px; text-align: left; font-size:15px">{{$details['email']}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="border: 1px solid black; border-collapse: collapse; padding: 15px; text-align: left; font-size:15px; font-weight: 500;">Date<td>
-                                                            <td style=" border: 1px solid black; border-collapse: collapse; padding: 15px; text-align: left; font-size:15px">{{$details['date']}}</td>
-                                                        </tr>
-                                                        <tr>
                                                             <td style="border: 1px solid black; border-collapse: collapse; padding: 15px; text-align: left; font-size:15px; font-weight: 500;">Message<td>
                                                             <td style=" border: 1px solid black; border-collapse: collapse; padding: 15px; text-align: left; font-size:15px">{{$details['message']}}</td>
                                                         </tr>

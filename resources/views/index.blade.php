@@ -18,9 +18,9 @@
                                 Photography <br />
                                 Live Streaming
                                 </span>
-                                  
+
                             <!--<a href="#"><i class="fa-solid fa-play"></i> Watch Now</a>-->
-                            
+
                                     <div class="afterBannerSec">
             <div class="redline">
                 <div class="">
@@ -59,8 +59,8 @@
                 </div>
             </div>
         </div>
-                            
-                            
+
+
                         </div>
                     </div>
                 </div>
@@ -178,14 +178,11 @@
                 <form action="{{route('contactForm')}}" method="post">@csrf
                     <div class="contact_2 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" class="form-control" name="name" placeholder="Enter your name" required/>
                             </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="email" class="form-control" name="email" placeholder="Your Email" required/>
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <input type="date" class="form-control" name="date" placeholder="Birthday Month & Date" required/>
                             </div>
                         </div>
                     </div>
