@@ -76,10 +76,10 @@ class UIcontroller extends Controller
                     {
                         return redirect()->route('index')->with('added', 'login Successfully');
                     }
-                    } else {
-                        session()->flash('passerror');
-                        return back()->with('input_pass', $request->log_password);
-                    }
+                } else {
+                    session()->flash('passerror');
+                    return back()->with('input_pass', $request->log_password);
+                }
             }
             else {
                 session()->flash('statusCheck');
@@ -215,8 +215,15 @@ class UIcontroller extends Controller
 //        if(session('redeem'))
 //        {
             $code = CompetitionModel::where('id',$id)->where('soft_delete',null)->first();
-            $iframe = $code->iframe;
-            return view('iframe',compact('iframe'));
+            if($code)
+            {
+                $iframe = $code->iframe;
+                return view('iframe',compact('iframe'));
+            }
+            else{
+                return back()->with('failed','Competition does not exist anymore.');
+            }
+
 //        }else
 //        {
 //            return redirect()->route('ui_redeem_code');

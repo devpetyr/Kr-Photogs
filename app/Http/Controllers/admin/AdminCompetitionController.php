@@ -26,24 +26,26 @@ class AdminCompetitionController extends Controller
     }
     function Competition_delete(Request $req)
     {
+
         $date=Carbon::now();
 
 
         $check=CompetitionModel::where('id',$req->id)->first();
-        if($check)
-        {
-            $coupon=CouponModel::where('competition_id',$req->id)->get();
-            foreach ($coupon as $item)
-            {
-                $item->soft_delete=$date;
-                $item->status=0;
-                $item->update();
-            }
-//            dd($coupon->all());
-        }
-        $check->soft_delete=$date;
-        $check->status=0;
-        $check->update();
+        $check->delete();
+//        if($check)
+//        {
+//            $coupon=CouponModel::where('competition_id',$req->id)->get();
+//            foreach ($coupon as $item)
+//            {
+//                $item->soft_delete=$date;
+//                $item->status=0;
+//                $item->update();
+//            }
+////            dd($coupon->all());
+//        }
+//        $check->soft_delete=$date;
+//        $check->status=0;
+//        $check->update();
         return response()->json([
             'status' => 1,
         ]);

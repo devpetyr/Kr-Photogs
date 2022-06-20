@@ -19,6 +19,7 @@
                   @if (session('Redeemerror1'))
                       <span style="color: crimson">This Redeem code is use only for competition date</span><br>
                   @endif
+
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
