@@ -71,7 +71,7 @@
                                     </div>
                                     <span style="color: crimson">@error('password'){{ $message }}  @enderror</span><br>
                                     @if (session('passerror'))
-                                        <span style="color: crimson">Password not found</span><br>
+                                        <span style="color: crimson">Your password is incorrect</span><br>
                                 @endif
                                     <!-- End of Form -->
                                     <div class="d-flex justify-content-between align-items-center mb-4">

@@ -141,12 +141,14 @@ class UIcontroller extends Controller
 //            $user->server_IP=$ip;
             $user->save();
 
-            Auth::login($user);
+
             if (session()->has('competition')) {
                 // dd(session()->get('competition'));
+                Auth::login($user);
                 return redirect()->route('payment_method');
             } else {
                 // dd('not have a session');
+                Auth::login($user);
                 return redirect()->route('index')->with('added', 'Register and Login Successfully');
             }
         }

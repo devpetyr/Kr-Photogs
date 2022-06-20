@@ -25,30 +25,30 @@ class AdminDashboardController extends Controller
             ->get();
 //        $monthly_sales;
         $now = Carbon::now();
-        foreach ($yearlyMemberships as $key => $value) {
-            if($value->year == $now->year)
-            {
-                $monthly_sales[$key] = [$value->year, $value->month, (int)$value->price, (int)$value->count_sale];
-            }
-        }
-        for($a = 1; $a <= 12; $a++)
-        {
-            $haveVal = false;
-            foreach($monthly_sales as $val)
-            {
-                if($a == $val[1])
-                {
-                    $haveVal = true;
-                    $monthly_sale[$a] = $val[2];
-                    break;
+        if(count($yearlyMemberships) > 0) {
+            foreach ($yearlyMemberships as $key => $value) {
+                if ($value->year == $now->year) {
+                    $monthly_sales[$key] = [$value->year, $value->month, (int)$value->price, (int)$value->count_sale];
                 }
             }
-            if(!$haveVal)
-            {
-                $monthly_sale[$a] = 0;
+            for ($a = 1; $a <= 12; $a++) {
+                $haveVal = false;
+                foreach ($monthly_sales as $val) {
+                    if ($a == $val[1]) {
+                        $haveVal = true;
+                        $monthly_sale[$a] = $val[2];
+                        break;
+                    }
+                }
+                if (!$haveVal) {
+                    $monthly_sale[$a] = 0;
+                }
             }
+            $data['monthly_sale'] = $monthly_sale;
         }
-        $data['monthly_sale'] = $monthly_sale;
+        else{
+            $data['monthly_sale'] = [0];
+        }
         return view('admin.dashboard', $data);
     }
 
